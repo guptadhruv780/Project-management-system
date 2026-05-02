@@ -2,31 +2,35 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
+
+// Railway usually provides the PORT env var. 
+// If it's missing, we default to 3000 but Railway's Networking tab MUST match this.
 const PORT = process.env.PORT || 3000;
 
-// Try to find the build directory
 const buildPath = path.join(__dirname, 'build');
 const distPath = path.join(__dirname, 'dist');
 let finalPath = '';
 
 if (fs.existsSync(buildPath)) {
   finalPath = buildPath;
-  console.log('Using /build directory');
+  console.log('Serving from /build directory');
 } else if (fs.existsSync(distPath)) {
   finalPath = distPath;
-  console.log('Using /dist directory');
+  console.log('Serving from /dist directory');
 } else {
   console.error('CRITICAL: No build or dist directory found!');
-  console.log('Current directory contents:', fs.readdirSync(__dirname));
+  console.log('Contents of ' + __dirname + ':', fs.readdirSync(__dirname));
 }
 
 if (finalPath) {
   app.use(express.static(finalPath));
+  // Handle client-side routing
   app.get('*', (req, res) => {
     res.sendFile(path.join(finalPath, 'index.html'));
   });
 }
 
+// IMPORTANT: Must listen on 0.0.0.0 for Railway
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Frontend server is running on port ${PORT}`);
+  console.log(`Server successfully started on 0.0.0.0:${PORT}`);
 });
