@@ -1,0 +1,221 @@
+/* ── NEUMORPHISM TOKENS ── */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+/* ── SHADOW UTILITIES ── */
+.neu-raised {
+  background: var(--surface);
+  box-shadow: 4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+  border-radius: var(--radius-lg);
+}
+
+.neu-raised-sm {
+  background: var(--surface);
+  box-shadow: 4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+  border-radius: var(--radius-md);
+}
+
+.neu-inset {
+  background: var(--surface);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  border-radius: var(--radius-md);
+}
+
+.neu-flat {
+  background: var(--surface);
+  border: 1px solid var(--shadow-light);
+  border-radius: var(--radius-lg);
+}
+
+/* ── BUTTONS ── */
+.neu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.neu-btn:hover {
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  transform: translateY(1px);
+}
+
+.neu-btn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  transform: translateY(2px);
+}
+
+.neu-btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 4px 4px 8px rgba(0, 102, 102, 0.3), -4px -4px 8px var(--shadow-light);
+}
+
+.neu-btn-primary:hover {
+  box-shadow: 2px 2px 4px rgba(0, 102, 102, 0.4), -2px -2px 4px var(--shadow-light);
+  filter: brightness(1.05);
+}
+
+.neu-btn-primary:active {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.neu-btn-icon {
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* ── INPUTS & FORMS ── */
+.neu-input, .neu-select, .neu-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: none;
+  outline: none;
+  border-radius: var(--radius-md);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.neu-input:focus, .neu-select:focus, .neu-textarea:focus {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.neu-input::placeholder, .neu-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── BADGES ── */
+.neu-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--surface);
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+}
+
+.badge-todo { color: var(--text-muted); }
+.badge-in-progress { color: var(--primary); }
+.badge-completed { color: var(--success); }
+
+/* ── PROGRESS BAR ── */
+.progress-track {
+  width: 100%;
+  background: #d1d9e0;
+  border-radius: 9999px;
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1), inset -2px -2px 4px rgba(255,255,255,0.5);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: var(--surface-sidebar);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  border-right: 1px solid #e5e5e5;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(0, 102, 102, 0.05);
+  color: var(--primary);
+}
+
+.sidebar-nav-item.active {
+  background: rgba(0, 102, 102, 0.05);
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+}
+
+.main-content {
+  margin-left: 260px;
+  padding: 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: calc(100% - 260px);
+  overflow-x: hidden;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+.fade-in-d1 { animation: fadeIn 0.5s ease 0.1s forwards; opacity: 0; }
+.fade-in-d2 { animation: fadeIn 0.5s ease 0.2s forwards; opacity: 0; }
+.fade-in-d3 { animation: fadeIn 0.5s ease 0.3s forwards; opacity: 0; }
+.fade-in-d4 { animation: fadeIn 0.5s ease 0.4s forwards; opacity: 0; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+.pulse { animation: pulse 1.5s infinite; }
