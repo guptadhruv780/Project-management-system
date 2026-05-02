@@ -16,7 +16,7 @@
     "build": "vite build",
     "lint": "eslint",
     "serve": "vite preview",
-    "start": "bash -c 'serve -s build -l ${PORT:-3000}'"
+    "start": "node server.js"
   },
   "dependencies": {
     "@coreui/chartjs": "^4.2.0",
@@ -38,7 +38,8 @@
     "redux": "5.0.1",
     "simplebar-react": "^3.3.2",
     "axios": "^1.7.7",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "express": "^4.21.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
