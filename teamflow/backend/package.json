@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "node src/index.js",
-    "start": "prisma generate && node src/index.js",
+    "start": "prisma generate && prisma db push && node src/index.js",
     "build": "prisma generate",
     "seed": "node src/seed.js",
     "postinstall": "prisma generate"
