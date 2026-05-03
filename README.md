@@ -72,7 +72,7 @@ Check out the live application: [TeamFlow Live](https://project-management-syste
 ## 📈 Deployment
 The application is deployed using **Railway** for both the frontend and the backend, ensuring high availability and seamless CI/CD integration.
 
----
+--
 
 ## 📄 License
 This project is open-source and available under the [MIT License](LICENSE).
